@@ -155,4 +155,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+0.Project_info
+
 # End of https://www.toptal.com/developers/gitignore/api/terraform,windows,linux,macos,android,dotenv
