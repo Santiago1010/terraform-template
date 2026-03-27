@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "hashicorp.terraform",
+    "redhat.vscode-yaml",
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "yzhang.markdown-all-in-one"
+  ],
+  "unwantedRecommendations": ["mauve.terraform"]
+}

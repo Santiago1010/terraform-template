@@ -1,0 +1,32 @@
+.
+├── bootstrap
+│   ├── main.tf
+│   ├── .terraform
+│   │   └── providers
+│   │       └── registry.terraform.io
+│   │           └── hashicorp
+│   │               └── aws
+│   │                   └── 6.38.0
+│   │                       └── linux_amd64
+│   │                           ├── LICENSE.txt
+│   │                           └── terraform-provider-aws_v6.38.0_x5
+│   ├── .terraform.lock.hcl
+│   └── terraform.tfvars
+├── context
+│   └── structure.txt
+├── .gitignore
+├── .terraform
+│   ├── providers
+│   │   └── registry.terraform.io
+│   │       └── hashicorp
+│   │           └── aws
+│   │               └── 6.38.0
+│   │                   └── linux_amd64
+│   │                       ├── LICENSE.txt
+│   │                       └── terraform-provider-aws_v6.38.0_x5
+│   └── terraform.tfstate
+└── .vscode
+    ├── extensions.json
+    └── settings.json
+
+18 directories, 12 files
