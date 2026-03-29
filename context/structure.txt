@@ -39,6 +39,22 @@
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
+│   ├── kong
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── observability
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── postgresql
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── redis
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── s3
 │   │   ├── main.tf
 │   │   ├── outputs.tf
@@ -51,6 +67,10 @@
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
+│   ├── vault
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   └── vpc
 │       ├── main.tf
 │       ├── outputs.tf
@@ -59,4 +79,4 @@
     ├── extensions.json
     └── settings.json
 
-27 directories, 33 files
+32 directories, 48 files

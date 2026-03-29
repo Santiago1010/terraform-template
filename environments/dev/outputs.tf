@@ -72,3 +72,8 @@ output "observability_private_ip" {
   description = "Private IP of the observability instance."
   value       = module.observability.private_ip
 }
+
+output "rabbitmq_private_ip" {
+  description = "Private IP of the RabbitMQ instance."
+  value       = module.rabbitmq.private_ip
+}
