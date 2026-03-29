@@ -67,3 +67,8 @@ output "vault_private_ip" {
   description = "Private IP of the Vault instance."
   value       = module.vault.private_ip
 }
+
+output "observability_private_ip" {
+  description = "Private IP of the observability instance."
+  value       = module.observability.private_ip
+}
