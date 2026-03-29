@@ -62,3 +62,8 @@ output "redis_private_ip" {
   description = "Private IP of the Redis instance."
   value       = module.redis.private_ip
 }
+
+output "vault_private_ip" {
+  description = "Private IP of the Vault instance."
+  value       = module.vault.private_ip
+}

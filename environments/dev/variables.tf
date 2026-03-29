@@ -43,3 +43,9 @@ variable "private_subnet_cidrs" {
   type        = list(string)
   default     = ["10.0.11.0/24", "10.0.12.0/24"]
 }
+
+variable "vault_db_password" {
+  description = "Password for the Vault database user in PostgreSQL."
+  type        = string
+  sensitive   = true
+}
