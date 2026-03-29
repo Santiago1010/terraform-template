@@ -32,3 +32,8 @@ output "ssm_sg_id" {
   description = "ID of the SSM security group."
   value       = module.security_groups.ssm_sg_id
 }
+
+output "session_manager_document_name" {
+  description = "Name of the SSM Session Manager configuration document."
+  value       = aws_ssm_document.session_manager.name
+}
