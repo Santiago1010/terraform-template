@@ -34,13 +34,6 @@ module "vpc" {
   private_subnet_cidrs = var.private_subnet_cidrs
 }
 
-module "iam" {
-  source = "../../modules/iam"
-
-  project     = var.project
-  environment = var.environment
-}
-
 module "security_groups" {
   source = "../../modules/security-groups"
 
@@ -64,4 +57,15 @@ module "ssm" {
   environment             = var.environment
   session_timeout_minutes = 30
   logs_bucket_arn         = module.s3.infra_bucket_arn
+}
+
+data "aws_caller_identity" "current" {}
+
+module "iam" {
+  source = "../../modules/iam"
+
+  project          = var.project
+  environment      = var.environment
+  aws_account_id   = data.aws_caller_identity.current.account_id
+  infra_bucket_arn = module.s3.infra_bucket_arn
 }

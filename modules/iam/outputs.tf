@@ -17,3 +17,23 @@ output "ec2_base_instance_profile_arn" {
   description = "ARN of the instance profile. Required when referencing the profile in launch templates."
   value       = aws_iam_instance_profile.ec2_base.arn
 }
+
+output "developer_role_arn" {
+  description = "ARN of the developer IAM role. Assign to IAM users who need SSM and log access."
+  value       = aws_iam_role.developer.arn
+}
+
+output "infra_admin_role_arn" {
+  description = "ARN of the infra admin IAM role. Assign to IAM users who manage infrastructure."
+  value       = aws_iam_role.infra_admin.arn
+}
+
+output "developer_policy_arn" {
+  description = "ARN of the developer IAM policy. Useful for attaching to additional roles if needed."
+  value       = aws_iam_policy.developer.arn
+}
+
+output "infra_admin_policy_arn" {
+  description = "ARN of the infra admin IAM policy. Useful for attaching to additional roles if needed."
+  value       = aws_iam_policy.infra_admin.arn
+}

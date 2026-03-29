@@ -7,3 +7,13 @@ variable "environment" {
   description = "Deployment environment. Example: dev, staging, prod."
   type        = string
 }
+
+variable "aws_account_id" {
+  description = "AWS account ID. Used to construct ARNs for IAM policy resources."
+  type        = string
+}
+
+variable "infra_bucket_arn" {
+  description = "ARN of the infra S3 bucket. Grants developers read access to logs."
+  type        = string
+}
