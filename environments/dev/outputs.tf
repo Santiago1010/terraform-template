@@ -77,3 +77,8 @@ output "rabbitmq_private_ip" {
   description = "Private IP of the RabbitMQ instance."
   value       = module.rabbitmq.private_ip
 }
+
+output "kafka_private_ip" {
+  description = "Private IP of the Kafka instance."
+  value       = module.kafka.private_ip
+}

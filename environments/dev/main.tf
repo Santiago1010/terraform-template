@@ -171,3 +171,17 @@ module "rabbitmq" {
   instance_type         = "t3.small"
   data_volume_size      = 30
 }
+
+module "kafka" {
+  source = "../../modules/kafka"
+
+  project               = var.project
+  environment           = var.environment
+  vpc_id                = module.vpc.vpc_id
+  subnet_id             = module.vpc.private_subnet_ids[1]
+  instance_profile_name = module.iam.ec2_base_instance_profile_name
+  internal_sg_id        = module.security_groups.internal_sg_id
+  ssm_sg_id             = module.security_groups.ssm_sg_id
+  instance_type         = "t3.medium"
+  data_volume_size      = 50
+}
