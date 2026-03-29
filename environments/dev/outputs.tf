@@ -82,3 +82,8 @@ output "kafka_private_ip" {
   description = "Private IP of the Kafka instance."
   value       = module.kafka.private_ip
 }
+
+output "mongodb_private_ip" {
+  description = "Private IP of the MongoDB instance."
+  value       = module.mongodb.private_ip
+}
