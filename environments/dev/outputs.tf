@@ -87,3 +87,8 @@ output "mongodb_private_ip" {
   description = "Private IP of the MongoDB instance."
   value       = module.mongodb.private_ip
 }
+
+output "consul_private_ip" {
+  description = "Private IP of the Consul instance."
+  value       = module.consul.private_ip
+}
