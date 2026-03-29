@@ -37,3 +37,13 @@ output "session_manager_document_name" {
   description = "Name of the SSM Session Manager configuration document."
   value       = module.ssm.session_manager_document_name
 }
+
+output "kong_public_ip" {
+  description = "Public IP of the Kong instance. Point your DNS here."
+  value       = module.kong.kong_public_ip
+}
+
+output "kong_instance_id" {
+  description = "Kong EC2 instance ID. Use for SSM sessions."
+  value       = module.kong.kong_instance_id
+}
