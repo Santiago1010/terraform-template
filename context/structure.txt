@@ -14,9 +14,32 @@
 │   └── terraform.tfvars
 ├── context
 │   └── structure.txt
+├── environments
+│   └── dev
+│       ├── main.tf
+│       ├── outputs.tf
+│       ├── .terraform
+│       │   ├── modules
+│       │   │   └── modules.json
+│       │   ├── providers
+│       │   │   └── registry.terraform.io
+│       │   │       └── hashicorp
+│       │   │           └── aws
+│       │   │               └── 6.38.0
+│       │   │                   └── linux_amd64
+│       │   │                       ├── LICENSE.txt
+│       │   │                       └── terraform-provider-aws_v6.38.0_x5
+│       │   └── terraform.tfstate
+│       ├── .terraform.lock.hcl
+│       ├── terraform.tfvars
+│       └── variables.tf
 ├── .gitignore
 ├── modules
 │   ├── iam
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── security-groups
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
@@ -24,18 +47,8 @@
 │       ├── main.tf
 │       ├── outputs.tf
 │       └── variables.tf
-├── .terraform
-│   ├── providers
-│   │   └── registry.terraform.io
-│   │       └── hashicorp
-│   │           └── aws
-│   │               └── 6.38.0
-│   │                   └── linux_amd64
-│   │                       ├── LICENSE.txt
-│   │                       └── terraform-provider-aws_v6.38.0_x5
-│   └── terraform.tfstate
 └── .vscode
     ├── extensions.json
     └── settings.json
 
-21 directories, 18 files
+25 directories, 27 files

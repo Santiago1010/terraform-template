@@ -40,3 +40,12 @@ module "iam" {
   project     = var.project
   environment = var.environment
 }
+
+module "security_groups" {
+  source = "../../modules/security-groups"
+
+  project     = var.project
+  environment = var.environment
+  vpc_id      = module.vpc.vpc_id
+  vpc_cidr    = module.vpc.vpc_cidr
+}
