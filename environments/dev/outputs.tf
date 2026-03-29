@@ -57,3 +57,8 @@ output "postgresql_app_private_ip" {
   description = "Private IP of the app PostgreSQL instance."
   value       = module.postgresql_app.private_ip
 }
+
+output "redis_private_ip" {
+  description = "Private IP of the Redis instance."
+  value       = module.redis.private_ip
+}
