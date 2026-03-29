@@ -84,3 +84,33 @@ module "kong" {
   ssm_sg_id             = module.security_groups.ssm_sg_id
   instance_type         = "t3.small"
 }
+
+module "postgresql_infra" {
+  source = "../../modules/postgresql"
+
+  project               = var.project
+  environment           = var.environment
+  name                  = "infra"
+  vpc_id                = module.vpc.vpc_id
+  subnet_id             = module.vpc.private_subnet_ids[0]
+  instance_profile_name = module.iam.ec2_base_instance_profile_name
+  internal_sg_id        = module.security_groups.internal_sg_id
+  ssm_sg_id             = module.security_groups.ssm_sg_id
+  instance_type         = "t3.small"
+  data_volume_size      = 50
+}
+
+module "postgresql_app" {
+  source = "../../modules/postgresql"
+
+  project               = var.project
+  environment           = var.environment
+  name                  = "app"
+  vpc_id                = module.vpc.vpc_id
+  subnet_id             = module.vpc.private_subnet_ids[1]
+  instance_profile_name = module.iam.ec2_base_instance_profile_name
+  internal_sg_id        = module.security_groups.internal_sg_id
+  ssm_sg_id             = module.security_groups.ssm_sg_id
+  instance_type         = "t3.small"
+  data_volume_size      = 50
+}

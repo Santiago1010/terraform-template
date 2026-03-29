@@ -47,3 +47,13 @@ output "kong_instance_id" {
   description = "Kong EC2 instance ID. Use for SSM sessions."
   value       = module.kong.kong_instance_id
 }
+
+output "postgresql_infra_private_ip" {
+  description = "Private IP of the infra PostgreSQL instance."
+  value       = module.postgresql_infra.private_ip
+}
+
+output "postgresql_app_private_ip" {
+  description = "Private IP of the app PostgreSQL instance."
+  value       = module.postgresql_app.private_ip
+}
