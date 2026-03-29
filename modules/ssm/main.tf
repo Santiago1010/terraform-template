@@ -20,9 +20,12 @@ resource "aws_ssm_document" "session_manager" {
     description   = "Session Manager default shell configuration"
     sessionType   = "Standard_Shell"
     inputs = {
-      idleSessionTimeout = tostring(var.session_timeout_minutes)
-      maxSessionDuration = tostring(var.session_timeout_minutes * 2)
-      runAsEnabled       = false
+      idleSessionTimeout  = tostring(var.session_timeout_minutes)
+      maxSessionDuration  = tostring(var.session_timeout_minutes * 2)
+      runAsEnabled        = false
+      s3BucketName        = regex("arn:aws:s3:::(.+)", var.logs_bucket_arn)[0]
+      s3KeyPrefix         = "ssm-logs"
+      s3EncryptionEnabled = true
       shellProfile = {
         linux = ""
       }

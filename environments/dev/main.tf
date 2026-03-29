@@ -50,10 +50,18 @@ module "security_groups" {
   vpc_cidr    = module.vpc.vpc_cidr
 }
 
+module "s3" {
+  source = "../../modules/s3"
+
+  project     = var.project
+  environment = var.environment
+}
+
 module "ssm" {
   source = "../../modules/ssm"
 
   project                 = var.project
   environment             = var.environment
   session_timeout_minutes = 30
+  logs_bucket_arn         = module.s3.infra_bucket_arn
 }
