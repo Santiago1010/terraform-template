@@ -15,6 +15,15 @@
 ├── context
 │   └── structure.txt
 ├── .gitignore
+├── modules
+│   ├── iam
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   └── vpc
+│       ├── main.tf
+│       ├── outputs.tf
+│       └── variables.tf
 ├── .terraform
 │   ├── providers
 │   │   └── registry.terraform.io
@@ -29,4 +38,4 @@
     ├── extensions.json
     └── settings.json
 
-18 directories, 12 files
+21 directories, 18 files
