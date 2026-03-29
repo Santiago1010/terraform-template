@@ -17,3 +17,8 @@ variable "infra_bucket_arn" {
   description = "ARN of the infra S3 bucket. Grants developers read access to logs."
   type        = string
 }
+
+variable "state_bucket_arn" {
+  description = "ARN of the Terraform state S3 bucket. Grants infra-admin access to manage remote state."
+  type        = string
+}

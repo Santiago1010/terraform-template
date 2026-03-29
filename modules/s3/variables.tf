@@ -19,3 +19,8 @@ variable "backups_retention_days" {
   type        = number
   default     = 30
 }
+
+variable "aws_account_id" {
+  description = "AWS account ID. Used to construct the bucket policy for SSM log delivery."
+  type        = string
+}

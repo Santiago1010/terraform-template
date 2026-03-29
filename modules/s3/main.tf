@@ -74,3 +74,33 @@ resource "aws_s3_bucket_lifecycle_configuration" "infra" {
     }
   }
 }
+
+resource "aws_s3_bucket_policy" "infra" {
+  bucket = aws_s3_bucket.infra.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid    = "SSMLogsWrite"
+        Effect = "Allow"
+        Principal = {
+          Service = "ssm.amazonaws.com"
+        }
+        Action = [
+          "s3:PutObject",
+          "s3:GetEncryptionConfiguration"
+        ]
+        Resource = [
+          "${aws_s3_bucket.infra.arn}/ssm-logs/*",
+          aws_s3_bucket.infra.arn
+        ]
+        Condition = {
+          StringEquals = {
+            "aws:SourceAccount" = var.aws_account_id
+          }
+        }
+      }
+    ]
+  })
+}

@@ -82,6 +82,30 @@ resource "aws_iam_policy" "developer" {
         Effect   = "Allow"
         Action   = ["ec2:DescribeInstances"]
         Resource = "*"
+      },
+      {
+        Sid    = "TerraformStateAccess"
+        Effect = "Allow"
+        Action = [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:DeleteObject",
+          "s3:ListBucket"
+        ]
+        Resource = [
+          var.state_bucket_arn,
+          "${var.state_bucket_arn}/*"
+        ]
+      },
+      {
+        Sid    = "TerraformLockAccess"
+        Effect = "Allow"
+        Action = [
+          "dynamodb:GetItem",
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem"
+        ]
+        Resource = "arn:aws:dynamodb:us-east-1:${var.aws_account_id}:table/terraform-locks"
       }
     ]
   })
@@ -164,4 +188,42 @@ resource "aws_iam_role_policy_attachment" "developer" {
 resource "aws_iam_role_policy_attachment" "infra_admin" {
   role       = aws_iam_role.infra_admin.name
   policy_arn = aws_iam_policy.infra_admin.arn
+}
+
+resource "aws_iam_policy" "assume_developer" {
+  name        = "${local.prefix}-assume-developer-policy"
+  description = "Allows attachment to IAM users who should assume the developer role."
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid      = "AssumeDevRole"
+        Effect   = "Allow"
+        Action   = "sts:AssumeRole"
+        Resource = aws_iam_role.developer.arn
+      }
+    ]
+  })
+
+  tags = local.common_tags
+}
+
+resource "aws_iam_policy" "assume_infra_admin" {
+  name        = "${local.prefix}-assume-infra-admin-policy"
+  description = "Allows attachment to IAM users who should assume the infra-admin role."
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid      = "AssumeInfraAdminRole"
+        Effect   = "Allow"
+        Action   = "sts:AssumeRole"
+        Resource = aws_iam_role.infra_admin.arn
+      }
+    ]
+  })
+
+  tags = local.common_tags
 }

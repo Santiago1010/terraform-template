@@ -46,8 +46,9 @@ module "security_groups" {
 module "s3" {
   source = "../../modules/s3"
 
-  project     = var.project
-  environment = var.environment
+  project        = var.project
+  environment    = var.environment
+  aws_account_id = data.aws_caller_identity.current.account_id
 }
 
 module "ssm" {
@@ -68,4 +69,5 @@ module "iam" {
   environment      = var.environment
   aws_account_id   = data.aws_caller_identity.current.account_id
   infra_bucket_arn = module.s3.infra_bucket_arn
+  state_bucket_arn = "arn:aws:s3:::tf-state-sca-2026-9xk2"
 }

@@ -37,3 +37,13 @@ output "infra_admin_policy_arn" {
   description = "ARN of the infra admin IAM policy. Useful for attaching to additional roles if needed."
   value       = aws_iam_policy.infra_admin.arn
 }
+
+output "assume_developer_policy_arn" {
+  description = "ARN of the policy to attach to IAM users who should assume the developer role."
+  value       = aws_iam_policy.assume_developer.arn
+}
+
+output "assume_infra_admin_policy_arn" {
+  description = "ARN of the policy to attach to IAM users who should assume the infra-admin role."
+  value       = aws_iam_policy.assume_infra_admin.arn
+}
