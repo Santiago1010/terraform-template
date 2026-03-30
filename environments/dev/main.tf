@@ -213,3 +213,31 @@ module "consul" {
   ssm_sg_id             = module.security_groups.ssm_sg_id
   instance_type         = "t3.small"
 }
+
+module "n8n_infra" {
+  source = "../../modules/n8n"
+
+  project               = var.project
+  environment           = var.environment
+  name                  = "infra"
+  vpc_id                = module.vpc.vpc_id
+  subnet_id             = module.vpc.private_subnet_ids[0]
+  instance_profile_name = module.iam.n8n_infra_instance_profile_name
+  internal_sg_id        = module.security_groups.internal_sg_id
+  ssm_sg_id             = module.security_groups.ssm_sg_id
+  instance_type         = "t3.small"
+}
+
+module "n8n_app" {
+  source = "../../modules/n8n"
+
+  project               = var.project
+  environment           = var.environment
+  name                  = "app"
+  vpc_id                = module.vpc.vpc_id
+  subnet_id             = module.vpc.private_subnet_ids[1]
+  instance_profile_name = module.iam.ec2_base_instance_profile_name
+  internal_sg_id        = module.security_groups.internal_sg_id
+  ssm_sg_id             = module.security_groups.ssm_sg_id
+  instance_type         = "t3.small"
+}

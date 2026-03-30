@@ -92,3 +92,13 @@ output "consul_private_ip" {
   description = "Private IP of the Consul instance."
   value       = module.consul.private_ip
 }
+
+output "n8n_infra_private_ip" {
+  description = "Private IP of the n8n-infra instance."
+  value       = module.n8n_infra.private_ip
+}
+
+output "n8n_app_private_ip" {
+  description = "Private IP of the n8n-app instance."
+  value       = module.n8n_app.private_ip
+}
