@@ -227,3 +227,100 @@ resource "aws_iam_policy" "assume_infra_admin" {
 
   tags = local.common_tags
 }
+
+resource "aws_iam_policy" "n8n_infra" {
+  name        = "${local.prefix}-n8n-infra-policy"
+  description = "Grants n8n-infra permissions to manage AWS resources for infrastructure automation."
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid    = "EC2AutomationAccess"
+        Effect = "Allow"
+        Action = [
+          "ec2:DescribeInstances",
+          "ec2:StartInstances",
+          "ec2:StopInstances",
+          "ec2:RebootInstances",
+          "ec2:DescribeInstanceStatus"
+        ]
+        Resource = "*"
+        Condition = {
+          StringEquals = {
+            "aws:ResourceTag/Environment" = var.environment
+          }
+        }
+      },
+      {
+        Sid    = "S3AutomationAccess"
+        Effect = "Allow"
+        Action = [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:ListBucket"
+        ]
+        Resource = [
+          var.n8n_infra_bucket_arn,
+          "${var.n8n_infra_bucket_arn}/*"
+        ]
+      },
+      {
+        Sid    = "CloudWatchAccess"
+        Effect = "Allow"
+        Action = [
+          "cloudwatch:GetMetricData",
+          "cloudwatch:ListMetrics",
+          "cloudwatch:PutMetricData"
+        ]
+        Resource = "*"
+      },
+      {
+        Sid    = "SNSAccess"
+        Effect = "Allow"
+        Action = [
+          "sns:Publish",
+          "sns:ListTopics"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+
+  tags = local.common_tags
+}
+
+resource "aws_iam_role" "n8n_infra" {
+  name        = "${local.prefix}-n8n-infra-role"
+  description = "Assumed by the n8n-infra EC2 instance to manage AWS infrastructure automation."
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect    = "Allow"
+        Principal = { Service = "ec2.amazonaws.com" }
+        Action    = "sts:AssumeRole"
+      }
+    ]
+  })
+
+  tags = local.common_tags
+}
+
+resource "aws_iam_role_policy_attachment" "n8n_infra" {
+  role       = aws_iam_role.n8n_infra.name
+  policy_arn = aws_iam_policy.n8n_infra.arn
+}
+
+resource "aws_iam_role_policy_attachment" "n8n_infra_ssm" {
+  role       = aws_iam_role.n8n_infra.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+resource "aws_iam_instance_profile" "n8n_infra" {
+  name = "${local.prefix}-n8n-infra-profile"
+  role = aws_iam_role.n8n_infra.name
+
+  tags = local.common_tags
+}

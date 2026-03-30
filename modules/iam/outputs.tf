@@ -47,3 +47,8 @@ output "assume_infra_admin_policy_arn" {
   description = "ARN of the policy to attach to IAM users who should assume the infra-admin role."
   value       = aws_iam_policy.assume_infra_admin.arn
 }
+
+output "n8n_infra_instance_profile_name" {
+  description = "Instance profile name for the n8n-infra EC2 instance."
+  value       = aws_iam_instance_profile.n8n_infra.name
+}
