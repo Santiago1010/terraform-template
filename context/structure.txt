@@ -35,11 +35,27 @@
 │       └── variables.tf
 ├── .gitignore
 ├── modules
+│   ├── consul
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── iam
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
+│   ├── kafka
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── kong
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── mongodb
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── n8n
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
@@ -48,6 +64,10 @@
 │   │   ├── outputs.tf
 │   │   └── variables.tf
 │   ├── postgresql
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── rabbitmq
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
@@ -62,6 +82,8 @@
 │   ├── security-groups
 │   │   ├── main.tf
 │   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── sqs
 │   │   └── variables.tf
 │   ├── ssm
 │   │   ├── main.tf
@@ -79,4 +101,4 @@
     ├── extensions.json
     └── settings.json
 
-32 directories, 48 files
+38 directories, 64 files
