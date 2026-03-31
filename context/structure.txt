@@ -84,6 +84,7 @@
 │   │   ├── outputs.tf
 │   │   └── variables.tf
 │   ├── sqs
+│   │   ├── main.tf
 │   │   └── variables.tf
 │   ├── ssm
 │   │   ├── main.tf
@@ -101,4 +102,4 @@
     ├── extensions.json
     └── settings.json
 
-38 directories, 64 files
+38 directories, 65 files
