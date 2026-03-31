@@ -102,3 +102,13 @@ output "n8n_app_private_ip" {
   description = "Private IP of the n8n-app instance."
   value       = module.n8n_app.private_ip
 }
+
+output "sqs_queue_urls" {
+  description = "URLs of the SQS queues."
+  value       = module.sqs.queue_urls
+}
+
+output "sqs_deadletter_queue_urls" {
+  description = "URLs of the SQS dead-letter queues."
+  value       = module.sqs.deadletter_queue_urls
+}

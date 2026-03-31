@@ -241,3 +241,10 @@ module "n8n_app" {
   ssm_sg_id             = module.security_groups.ssm_sg_id
   instance_type         = "t3.small"
 }
+
+module "sqs" {
+  source = "../../modules/sqs"
+
+  project     = var.project
+  environment = var.environment
+}
