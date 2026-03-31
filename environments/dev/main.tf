@@ -248,3 +248,30 @@ module "sqs" {
   project     = var.project
   environment = var.environment
 }
+
+module "cloudwatch" {
+  source = "../../modules/cloudwatch"
+
+  project     = var.project
+  environment = var.environment
+
+  sqs_queue_names = {
+    jobs   = "${var.project}-${var.environment}-jobs-dlq"
+    events = "${var.project}-${var.environment}-events-dlq"
+  }
+
+  ec2_instance_ids = {
+    kong             = module.kong.kong_instance_id
+    postgresql_infra = module.postgresql_infra.instance_id
+    postgresql_app   = module.postgresql_app.instance_id
+    redis            = module.redis.instance_id
+    vault            = module.vault.instance_id
+    observability    = module.observability.instance_id
+    rabbitmq         = module.rabbitmq.instance_id
+    kafka            = module.kafka.instance_id
+    mongodb          = module.mongodb.instance_id
+    consul           = module.consul.instance_id
+    n8n_infra        = module.n8n_infra.instance_id
+    n8n_app          = module.n8n_app.instance_id
+  }
+}

@@ -112,3 +112,18 @@ output "sqs_deadletter_queue_urls" {
   description = "URLs of the SQS dead-letter queues."
   value       = module.sqs.deadletter_queue_urls
 }
+
+output "cloudwatch_ec2_status_check_alarm_arns" {
+  description = "ARNs of the EC2 status check alarms."
+  value       = module.cloudwatch.ec2_status_check_alarm_arns
+}
+
+output "cloudwatch_ec2_cpu_credit_alarm_arns" {
+  description = "ARNs of the EC2 CPU credit balance alarms."
+  value       = module.cloudwatch.ec2_cpu_credit_alarm_arns
+}
+
+output "cloudwatch_sqs_dlq_depth_alarm_arns" {
+  description = "ARNs of the SQS DLQ depth alarms."
+  value       = module.cloudwatch.sqs_dlq_depth_alarm_arns
+}

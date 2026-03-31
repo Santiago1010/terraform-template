@@ -35,6 +35,10 @@
 │       └── variables.tf
 ├── .gitignore
 ├── modules
+│   ├── cloudwatch
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── consul
 │   │   ├── main.tf
 │   │   ├── outputs.tf
@@ -103,4 +107,4 @@
     ├── extensions.json
     └── settings.json
 
-38 directories, 66 files
+39 directories, 69 files
