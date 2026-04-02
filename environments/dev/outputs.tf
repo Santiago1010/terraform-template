@@ -147,3 +147,13 @@ output "secret_names" {
   description = "Names of the Secrets Manager secrets."
   value       = module.secrets_manager.secret_names
 }
+
+output "ssm_parameter_names" {
+  description = "Names of the SSM parameters. Use these paths to retrieve values from the AWS console or application code."
+  value       = module.ssm-parameters.parameter_names
+}
+
+output "ssm_parameter_arns" {
+  description = "ARNs of the SSM parameters."
+  value       = module.ssm-parameters.parameter_arns
+}

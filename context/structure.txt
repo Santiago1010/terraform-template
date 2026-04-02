@@ -51,6 +51,10 @@
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
+│   ├── kinesis
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── kong
 │   │   ├── main.tf
 │   │   ├── outputs.tf
@@ -83,6 +87,10 @@
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
+│   ├── secrets-manager
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── security-groups
 │   │   ├── main.tf
 │   │   ├── outputs.tf
@@ -92,6 +100,10 @@
 │   │   ├── outputs.tf
 │   │   └── variables.tf
 │   ├── ssm
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── ssm-parameters
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
@@ -107,4 +119,4 @@
     ├── extensions.json
     └── settings.json
 
-39 directories, 69 files
+42 directories, 78 files

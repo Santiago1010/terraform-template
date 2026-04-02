@@ -313,3 +313,73 @@ module "secrets_manager" {
     }
   }
 }
+
+module "ssm-parameters" {
+  source = "../../modules/ssm-parameters"
+
+  project     = var.project
+  environment = var.environment
+
+  parameters = {
+    kong-private-ip = {
+      description = "Private IP of the Kong instance."
+      value       = module.kong.kong_private_ip
+      type        = "String"
+    }
+    postgresql-infra-private-ip = {
+      description = "Private IP of the infra PostgreSQL instance."
+      value       = module.postgresql_infra.private_ip
+      type        = "String"
+    }
+    postgresql-app-private-ip = {
+      description = "Private IP of the app PostgreSQL instance."
+      value       = module.postgresql_app.private_ip
+      type        = "String"
+    }
+    redis-private-ip = {
+      description = "Private IP of the Redis instance."
+      value       = module.redis.private_ip
+      type        = "String"
+    }
+    vault-private-ip = {
+      description = "Private IP of the Vault instance."
+      value       = module.vault.private_ip
+      type        = "String"
+    }
+    observability-private-ip = {
+      description = "Private IP of the observability instance."
+      value       = module.observability.private_ip
+      type        = "String"
+    }
+    rabbitmq-private-ip = {
+      description = "Private IP of the RabbitMQ instance."
+      value       = module.rabbitmq.private_ip
+      type        = "String"
+    }
+    kafka-private-ip = {
+      description = "Private IP of the Kafka instance."
+      value       = module.kafka.private_ip
+      type        = "String"
+    }
+    mongodb-private-ip = {
+      description = "Private IP of the MongoDB instance."
+      value       = module.mongodb.private_ip
+      type        = "String"
+    }
+    consul-private-ip = {
+      description = "Private IP of the Consul instance."
+      value       = module.consul.private_ip
+      type        = "String"
+    }
+    n8n-infra-private-ip = {
+      description = "Private IP of the n8n-infra instance."
+      value       = module.n8n_infra.private_ip
+      type        = "String"
+    }
+    n8n-app-private-ip = {
+      description = "Private IP of the n8n-app instance."
+      value       = module.n8n_app.private_ip
+      type        = "String"
+    }
+  }
+}
