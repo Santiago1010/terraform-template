@@ -127,3 +127,13 @@ output "cloudwatch_sqs_dlq_depth_alarm_arns" {
   description = "ARNs of the SQS DLQ depth alarms."
   value       = module.cloudwatch.sqs_dlq_depth_alarm_arns
 }
+
+output "kinesis_stream_names" {
+  description = "Names of the Kinesis streams."
+  value       = module.kinesis.stream_names
+}
+
+output "kinesis_stream_arns" {
+  description = "ARNs of the Kinesis streams."
+  value       = module.kinesis.stream_arns
+}

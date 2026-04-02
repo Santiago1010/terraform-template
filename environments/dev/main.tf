@@ -275,3 +275,21 @@ module "cloudwatch" {
     n8n_app          = module.n8n_app.instance_id
   }
 }
+
+module "kinesis" {
+  source = "../../modules/kinesis"
+
+  project     = var.project
+  environment = var.environment
+
+  streams = {
+    events = {
+      retention_hours = 24
+      stream_mode     = "ON_DEMAND"
+    }
+    jobs = {
+      retention_hours = 24
+      stream_mode     = "ON_DEMAND"
+    }
+  }
+}
