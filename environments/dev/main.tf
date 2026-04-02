@@ -293,3 +293,23 @@ module "kinesis" {
     }
   }
 }
+
+module "secrets_manager" {
+  source = "../../modules/secrets-manager"
+
+  project     = var.project
+  environment = var.environment
+
+  secrets = {
+    vault_db_password = {
+      description     = "Password for the Vault database user in PostgreSQL."
+      initial_value   = var.vault_db_password
+      recovery_window = 7
+    }
+    kong_db_password = {
+      description     = "Password for the Kong database user in PostgreSQL."
+      initial_value   = null
+      recovery_window = 7
+    }
+  }
+}

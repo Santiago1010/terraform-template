@@ -137,3 +137,13 @@ output "kinesis_stream_arns" {
   description = "ARNs of the Kinesis streams."
   value       = module.kinesis.stream_arns
 }
+
+output "secret_arns" {
+  description = "ARNs of the Secrets Manager secrets."
+  value       = module.secrets_manager.secret_arns
+}
+
+output "secret_names" {
+  description = "Names of the Secrets Manager secrets."
+  value       = module.secrets_manager.secret_names
+}
