@@ -43,6 +43,14 @@
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
+│   ├── documentdb
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── elasticache
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── iam
 │   │   ├── main.tf
 │   │   ├── outputs.tf
@@ -76,6 +84,10 @@
 │   │   ├── outputs.tf
 │   │   └── variables.tf
 │   ├── rabbitmq
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── rds
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
@@ -119,4 +131,4 @@
     ├── extensions.json
     └── settings.json
 
-42 directories, 78 files
+45 directories, 87 files

@@ -177,3 +177,18 @@ output "ssm_parameter_arns" {
 #   description = "Port the ElastiCache cluster is listening on."
 #   value       = module.elasticache.port
 # }
+
+# output "documentdb_endpoint" {
+#   description = "Primary endpoint for the DocumentDB cluster."
+#   value       = module.documentdb.endpoint
+# }
+#
+# output "documentdb_reader_endpoint" {
+#   description = "Reader endpoint for the DocumentDB cluster."
+#   value       = module.documentdb.reader_endpoint
+# }
+#
+# output "documentdb_port" {
+#   description = "Port the DocumentDB cluster is listening on."
+#   value       = module.documentdb.port
+# }

@@ -425,3 +425,24 @@ module "ssm-parameters" {
 #   auth_token              = var.elasticache_auth_token
 #   snapshot_retention_days = 1
 # }
+
+# module "documentdb" {
+#   source = "../../modules/documentdb"
+#
+#   project     = var.project
+#   environment = var.environment
+#
+#   vpc_id         = module.vpc.vpc_id
+#   subnet_ids     = module.vpc.private_subnet_ids
+#   internal_sg_id = module.security_groups.internal_sg_id
+#
+#   instance_class        = "db.t3.medium"
+#   instance_count        = 1
+#   engine_version        = "5.0.0"
+#   backup_retention_days = 7
+#   deletion_protection   = true
+#   skip_final_snapshot   = false
+#
+#   master_username = "docdb"
+#   master_password = var.documentdb_master_password
+# }
