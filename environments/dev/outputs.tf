@@ -157,3 +157,13 @@ output "ssm_parameter_arns" {
   description = "ARNs of the SSM parameters."
   value       = module.ssm-parameters.parameter_arns
 }
+
+# output "rds_endpoint" {
+#   description = "Connection endpoint for the RDS instance."
+#   value       = module.rds.endpoint
+# }
+#
+# output "rds_port" {
+#   description = "Port the RDS instance is listening on."
+#   value       = module.rds.port
+# }

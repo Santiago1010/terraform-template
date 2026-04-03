@@ -383,3 +383,25 @@ module "ssm-parameters" {
     }
   }
 }
+
+# module "rds" {
+#   source = "../../modules/rds"
+#
+#   project     = var.project
+#   environment = var.environment
+#
+#   vpc_id         = module.vpc.vpc_id
+#   subnet_ids     = module.vpc.private_subnet_ids
+#   internal_sg_id = module.security_groups.internal_sg_id
+#
+#   instance_class        = "db.t3.micro"
+#   engine_version        = "16.3"
+#   allocated_storage     = 20
+#   max_allocated_storage = 100
+#   multi_az              = false
+#   deletion_protection   = true
+#   backup_retention_days = 7
+#
+#   master_username = "postgres"
+#   master_password = var.rds_master_password
+# }
