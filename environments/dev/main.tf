@@ -405,3 +405,23 @@ module "ssm-parameters" {
 #   master_username = "postgres"
 #   master_password = var.rds_master_password
 # }
+
+# module "elasticache" {
+#   source = "../../modules/elasticache"
+#
+#   project     = var.project
+#   environment = var.environment
+#
+#   vpc_id         = module.vpc.vpc_id
+#   subnet_ids     = module.vpc.private_subnet_ids
+#   internal_sg_id = module.security_groups.internal_sg_id
+#
+#   node_type               = "cache.t3.micro"
+#   engine_version          = "7.1"
+#   num_cache_nodes         = 1
+#   automatic_failover      = false
+#   at_rest_encryption      = true
+#   transit_encryption      = true
+#   auth_token              = var.elasticache_auth_token
+#   snapshot_retention_days = 1
+# }

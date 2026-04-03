@@ -167,3 +167,13 @@ output "ssm_parameter_arns" {
 #   description = "Port the RDS instance is listening on."
 #   value       = module.rds.port
 # }
+
+# output "elasticache_primary_endpoint" {
+#   description = "Primary endpoint for the ElastiCache cluster."
+#   value       = module.elasticache.primary_endpoint
+# }
+#
+# output "elasticache_port" {
+#   description = "Port the ElastiCache cluster is listening on."
+#   value       = module.elasticache.port
+# }
